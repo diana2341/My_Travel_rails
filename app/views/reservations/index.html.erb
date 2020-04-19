@@ -1,0 +1,30 @@
+
+<h2>P R E V I O U S   &nbsp;  R E S E R V A T I O N S</h2>
+    
+
+
+<div class="columns is-multiline">
+<% @user.trips.each do |reservations|%>
+
+  <div class="column is-one-quarter-desktop is-half-tablet">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-3by2">
+
+        <%if reservations.listing.image.attached?%>
+         <%= image_tag url_for(reservations.listing.image)%><br>
+         </figure>
+         <div class="card-content is-overlay is-clipped">
+                
+         </div>
+     </div>
+     <footer class="card-footer  book">
+         <a class="card-footer-item"  >
+
+           <%= link_to "Booked", reservation_path(reservations) %>
+         </a>
+     </footer>
+ </div>
+</div>
+<%end%>
+        <% end %>

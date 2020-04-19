@@ -1,0 +1,73 @@
+<div class="container is-fullhd">
+  <div class="notification">
+  <section class="hero is-primary has-bg-img"> <div class="hero-body">
+   <div class="container has-text-centered"> 
+   <h1 class="title">Feel like home away from home </h1> <br>
+   
+   <div class="field has-addons">
+   <div class="control is-expanded">
+     <div class="select is-fullwidth">
+       <select name="country">
+        <option>Select location</option>
+         <option value="Argentina">New York</option>
+         <option value="Bolivia">Texas</option>
+         <option value="Brazil">North Carolina</option>
+         <option value="Chile">Chicago</option>
+         <option value="Colombia">California</option>
+          <option value="Colombia">Florida</option>
+
+       </select>
+     </div>
+   </div>
+   <div class="control">
+     <button type="submit" class="button is-primary">Choose</button>
+   </div>
+ </div>
+    </div> 
+    
+    </div>
+    
+     </section>
+     </div>
+     </div>
+  
+
+<big><strong> Places Available!</strong></big><br>
+
+    <br><br>
+  <hr>
+   
+
+ 
+   
+
+<div class="columns is-multiline"><br>
+<% @listings.each do |post|%>
+
+  <div class="column is-one-quarter-desktop is-half-tablet">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-3by2">
+            <%if post.image.attached?%>
+    <%=  image_tag url_for(post.image)%><br>
+            </figure>
+            <div class="card-content is-overlay is-clipped">
+              
+              <span class="tag is-info">
+                <%=post.location.city%> <br>
+              </span>       
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a class="card-footer-item"
+            <%=link_to "More information" ,listing_path(post)%><br>
+            
+
+            </a>
+        </footer>
+       
+    </div>
+  </div>
+ <%end%>
+    <% end %> 
+

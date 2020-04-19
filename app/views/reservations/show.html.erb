@@ -1,0 +1,69 @@
+<section class="hero ">
+<div class="hero is-fullheight is-primary has-background has-background-white-ter		">
+  <img alt="Fill Murray" class="hero-background is-transparent" src="https://media.giphy.com/media/jt2iqke49RyfmCjI6b/giphy.gif" />
+  <div class="hero-body">
+    <div class="container ">
+
+       <article class="tile is-child notification is-primary has-background-white-ter has-text-black-bis		">
+ <b><font size="6">Reservation overview</font></b>
+   <b><font size="6">  for <%= @reservation.guest.first_name%>! </font></b><br>
+
+        </article>
+         <footer class="card-footer"><br>
+
+        </footer>
+
+<div class="columns is-multiline"><br>
+<div class="column  ">
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-3by2">
+
+    <%if @reservation.listing.image.attached?%>
+    <%= image_tag url_for(@reservation.listing.image)%>  <br>
+    </figure>
+            <div class="card-content is-overlay is-clipped">
+                     
+            </div>
+        </div>
+       <p align="center"> Reservation status<p>
+        <br>
+       &nbsp; Location:
+        You will be staying at <%= @reservation.listing.address %><br>
+       &nbsp; Dates: <%=@reservation.checkin %> to <%=@reservation.checkout%> <br>
+
+&nbsp;Your confirmation number is <%= @reservation.confirmation_number%>  
+        <br>
+
+<div class="dropdown is-hoverable">
+  <div class="dropdown-trigger">
+    <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Booking Options</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item">
+        <p><%= link_to "Edit booking",edit_reservation_path(@reservation) %></p>
+        <p><%= link_to "view this listing", listing_path(@reservation.listing) %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <footer class="card-footer">
+            <a class="card-footer-item"
+
+            </a>
+        </footer>
+    </div>
+  </div>
+    <%end%>
+   </div>
+</div>
+</div>
+
+

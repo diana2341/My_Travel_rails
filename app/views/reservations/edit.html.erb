@@ -1,0 +1,32 @@
+
+    <h1 class="title">Edit your reservation!</h1>
+
+    <section class="hero is-success is-fullheight">
+<div class="hero is-fullheight is-primary has-background">
+  <img alt="Fill Murray" class="hero-background is-transparent" src="https://i.gifer.com/5L5q.gif" />
+  <div class="hero-body">
+    <main class="review content box">
+
+<% if flash[:messages]%>
+    <%flash[:messages].each do |m|%>
+    <%= m%> <br>
+    <% end %>
+<% end %>
+
+
+<%= form_for @reservation do |f|%>
+    <%=f.label :guest_amount%><br>
+    <%=f.number_field :guest_amount %><br>
+
+    <%=f.label :checkin%><br>
+    <%=f.date_field  :checkin %><br>
+
+    <%=f.label :checkout%><br>
+    <%=f.date_field  :checkout %><br>
+
+   <%# <%= f.hidden_field :listing_id, :value => @listing.id %>    
+   <%=f.submit "Update Reservation"%>
+    <%end%>
+    </form>
+
+</main>
